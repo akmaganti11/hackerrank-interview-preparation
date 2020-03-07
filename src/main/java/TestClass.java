@@ -7,7 +7,7 @@ import org.springframework.util.Assert;
 
 public class TestClass {
 	public static void main(String[] args) throws IOException {
-		
+
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //		System.out.println("Input:");
 //		PrintWriter wr = new PrintWriter(System.out);
@@ -30,12 +30,12 @@ public class TestClass {
 //
 //		wr.close();
 //		br.close();
-		
+
 //		int n = (int) Math.pow(10, 4);
 		System.out.println(solve("abcaab", 6, 2, 5));
-		
-		//-----------------------
-		
+
+		// -----------------------
+
 //	        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //	        PrintWriter wr = new PrintWriter(System.out);
 //	        int n = Integer.parseInt(br.readLine().trim());
@@ -55,45 +55,38 @@ public class TestClass {
 //	    System.out.println(solve());
 	}
 
-	
 	static int solve() {
-		int[] a = {10, 4, 4, 4, 4, 7};
-		int largest = Arrays.stream(a).max().getAsInt(); 
+		int[] a = { 10, 4, 4, 4, 4, 7 };
+		int largest = Arrays.stream(a).max().getAsInt();
 		boolean flag = false;
-        System.out.println(largest);
-        
-        int power = 0;
-        for(int i =0; i<a.length; i++) {
-			for(int j=i+1; j<a.length; j++) {
-				if(a[i] != largest && a[j] != largest) {
-					if(a[i]+a[j] > largest) {
+		System.out.println(largest);
+
+		int power = 0;
+		for (int i = 0; i < a.length; i++) {
+			for (int j = i + 1; j < a.length; j++) {
+				if (a[i] != largest && a[j] != largest) {
+					if (a[i] + a[j] > largest) {
 						flag = true;
 					}
 				}
 			}
 		}
-        
-        if(flag) {
-    		return Arrays.stream(a).sum() -largest;
-    	} else {
-    		power = Arrays.stream(a).sum();
-    	}
-        
-        
+
+		if (flag) {
+			return Arrays.stream(a).sum() - largest;
+		} else {
+			power = Arrays.stream(a).sum();
+		}
+
 		return power;
-		
-    }
 
+	}
 
-	
-
-
-	
 	static int solve(String s, int n, int l, int r) {
 		// Write your code here
 		int count = 0;
 		if (l >= 1 && l <= r && r <= n) {
-			String subedString = s.substring(l-1, r);
+			String subedString = s.substring(l - 1, r);
 			int subStringLength = subedString.length();
 			for (int i = 0; i < subStringLength; i++) {
 				for (int j = 1; j <= subStringLength - i; j++) {
